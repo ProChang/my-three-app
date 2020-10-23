@@ -7,6 +7,7 @@ import './assets/css/App.css';
 
 // 根组件
 export default class App extends React.Component {
+  // 构造函数
   constructor(props) {
     super(props)
     this.state = {
@@ -28,8 +29,12 @@ export default class App extends React.Component {
     render.setSize(window.innerWidth, window.innerHeight)
 
     let gridHelper = new THREE.GridHelper(200, 25)
+    gridHelper.position.x = 1
+    gridHelper.position.y = -10
     scene.add(gridHelper)
 
+    // 渲染 场景 和 相机
+    render.render(scene, camera)
     const element = document.getElementById('app')
     element.append(render.domElement)
   }
